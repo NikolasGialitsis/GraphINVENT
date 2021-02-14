@@ -20,7 +20,7 @@ jobname = "toxicology"      # used to create a sub directory
 # if running using SLURM, specify the parameters below
 use_slurm = False        # use SLURM or not
 run_time = "1-00:00:00"  # hh:mm:ss
-mem_GB = 20
+mem_GB = 10 # 20
 
 # set paths here
 python_path = f"/usr/local/bin/python3.8"
@@ -52,7 +52,7 @@ params = {
 # set partition to run job on
 if job_type == "preprocess":  # preprocessing jobs CPU only
     partition = "core"
-    cpus_per_task = 1
+    cpus_per_task = 4 # 1
 else:
     partition = "gpu"
     cpus_per_task = 4
