@@ -33,9 +33,11 @@ def get_atom_types(smi_file):
     # create a list of all the atom types
     atom_types = list()
     for mol in molecules:
-        for atom in mol.GetAtoms():
-            atom_types.append(atom.GetAtomicNum())
-
+        try:
+          for atom in mol.GetAtoms():
+              atom_types.append(atom.GetAtomicNum())
+        except:
+          pass
     # remove duplicate atom types then sort by atomic number
     set_of_atom_types = set(atom_types)
     atom_types_sorted = list(set_of_atom_types)

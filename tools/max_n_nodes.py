@@ -31,10 +31,13 @@ def get_max_n_atoms(smi_file):
 
     max_n_atoms = 0
     for mol in molecules:
-        n_atoms = mol.GetNumAtoms()
+        try:
+          n_atoms = mol.GetNumAtoms()
 
-        if n_atoms > max_n_atoms:
-            max_n_atoms = n_atoms
+          if n_atoms > max_n_atoms:
+              max_n_atoms = n_atoms
+        except:
+          pass
 
     return max_n_atoms
 

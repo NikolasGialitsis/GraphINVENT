@@ -33,9 +33,11 @@ def get_formal_charges(smi_file):
     # create a list of all the formal charges
     formal_charges = list()
     for mol in molecules:
-        for atom in mol.GetAtoms():
-            formal_charges.append(atom.GetFormalCharge())
-
+        try:
+          for atom in mol.GetAtoms():
+              formal_charges.append(atom.GetFormalCharge())
+        except:
+          pass
     # remove duplicate formal charges then sort
     set_of_formal_charges = set(formal_charges)
     formal_charges_sorted = list(set_of_formal_charges)
