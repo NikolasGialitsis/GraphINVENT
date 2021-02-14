@@ -10,7 +10,7 @@ import time
 
 # define what you want to do for the specified job(s)
 dataset = "Toxic"
-job_type = "preprocess"       # "preprocess", "train", "generate", or "test"
+job_type = "generate"       # "preprocess", "train", "generate", or "test"
 jobdir_start_idx = 0     # where to start indexing job dirs
 n_jobs = 1               # number of jobs to run per model
 restart = False
@@ -44,6 +44,8 @@ params = {
     "epochs": 400,
     "batch_size": 1000,
     "block_size": 100000,
+    "generation_epoch":400,
+    "n_samples":20
     # additional paramaters can be defined here, if different from the "defaults"
     # (!!!) for "generate" jobs, don't forget to specify "generation_epoch" and "n_samples"
 }
